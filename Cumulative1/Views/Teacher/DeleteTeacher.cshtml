@@ -1,0 +1,19 @@
+﻿@model Cumulative1.Models.Teacher
+
+@{
+    ViewBag.Title = "DeleteTeacher";
+}
+
+<div>
+    <nav>
+        <a href="/Teacher/Show/@Model.TeacherId">Cancel</a>
+    </nav>
+    <h2>Are you sure you want to delete @Model.TeacherFname @Model.TeacherLname?</h2>
+    <p>This will erase all existing data and cannot be reversed.</p>
+    <form method="POST" action="/Teacher/Delete/@Model.TeacherId">
+        <button>
+            Confirm Delete
+        </button>
+    </form>
+</div>
+

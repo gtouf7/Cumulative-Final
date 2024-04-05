@@ -1,0 +1,63 @@
+﻿@{
+    ViewBag.Title = "New";
+}
+
+
+<div>
+    <nav>
+        <a href="/Teacher/List">Back to Teachers</a>
+    </nav>
+    <h2>New Teacher</h2>
+    <form method="POST" action="/Teacher/Create">
+        <div>
+            <label for="teacherFname">First Name:</label>
+            <input type="text" id="teacherFname" name="teacherFname" />
+        </div>
+        <div>
+            <label for="teacherLname">Last Name:</label>
+            <input type="text" id="teacherLname" name="teacherLname" />
+        </div>
+        <div>
+            <label for="teacherId">Teacher ID:</label>
+            <input type="text" id="teacherId" name="teacherId" />
+        </div>
+        <div>
+            <label for="employeeNo">Employee Number:</label>
+            <input type="text" id="employeeNo" name="employeeNo" />
+        </div>
+        <div>
+            <label for="salary">Salary:</label>
+            <input type="text" id="salary" name="salary" />
+        </div>
+        <div>
+            <input type="submit" value="Create Teacher" />
+        </div>
+    </form>
+</div>
+
+@{
+    //input validation using JS initiative
+}
+
+@section scripts {
+    <script>
+        function ValidateFormIN() {
+            var teacherFname = document.getElementById("teacherFname").value;
+            var teacherLname = document.getElementById("teacherLname").value;
+            var teacherId = document.getElementById("teacherId").value;
+            var regex = /^\d{2}$/;
+            if (teacherFname == "") {
+                alert("Teacher First Name must be provided!");
+                return false;
+            } else if (teacherLname == "") {
+                alert("Teacher Last Name must be provided!");
+                return false;
+            } else if (teacherId == "" || !regex.Test(teacherId)) {
+                alert("Please provide a valid ID value!");
+                return false;
+            }
+            return true;
+        }
+    </script>
+
+}
